@@ -1,0 +1,27 @@
+HKCR
+{
+	SignonName.UserName.1 = s 'UserName Class'
+	{
+		CLSID = s '{70C54A38-5023-4204-A209-A1452AED4D66}'
+	}
+	SignonName.UserName = s 'UserName Class'
+	{
+		CLSID = s '{70C54A38-5023-4204-A209-A1452AED4D66}'
+		CurVer = s 'SignonName.UserName.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {70C54A38-5023-4204-A209-A1452AED4D66} = s 'UserName Class'
+		{
+			ProgID = s 'SignonName.UserName.1'
+			VersionIndependentProgID = s 'SignonName.UserName'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{605C753E-0871-45F1-89DE-E7B741722E73}'
+		}
+	}
+}

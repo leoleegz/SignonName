@@ -1,0 +1,37 @@
+// SignonName.idl : IDL source for SignonName
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SignonName.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(D67DBF00-E8B0-4392-9D6A-EEA5F0799DAE),
+	dual,
+	nonextensible,
+	helpstring("IUserName Interface"),
+	pointer_default(unique)
+]
+interface IUserName : IDispatch{
+	[id(1), helpstring("method GetUserName")] HRESULT GetUserName([out,retval] BSTR* SamName);
+};
+[
+	uuid(605C753E-0871-45F1-89DE-E7B741722E73),
+	version(1.0),
+	helpstring("SignonName 1.0 Type Library")
+]
+library SignonNameLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(70C54A38-5023-4204-A209-A1452AED4D66),
+		helpstring("UserName Class")
+	]
+	coclass UserName
+	{
+		[default] interface IUserName;
+	};
+};
